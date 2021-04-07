@@ -1,0 +1,96 @@
+Luis Emilio Pimentel Mora
+====================================================
+1ero
+====================================================
+using System;
+
+
+namespace participacion
+{
+    class Program
+    {
+        private int[] vector;
+
+        public Program()
+        {
+            Console.Write("Especifíque el tamaño del vector:");
+            int longi = int.Parse(Console.ReadLine());
+            vector = new int[longi];
+        }
+
+        public void Cargar()
+        {
+            for (var f = 0; f < vector.Length; f++)
+            {
+                Console.Write("Ingrese elemento:");
+                vector[f] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        public void tarea2(out int greater, out int less)
+        {
+            greater = vector[0];
+            less = vector[0];
+            for (var f = 1; f < vector.Length; f++)
+            {
+                if (vector[f] > greater)
+                {
+                    less = vector[f];
+                }
+                else
+                {
+                    if (vector[f] < less)
+                    {
+                        less = vector[f];
+                    }
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.Cargar();
+            int mayor, menor;
+            p.tarea2(out menor,  out mayor );
+            Console.WriteLine("El número mayor dentro del vector es:" + mayor);
+            Console.WriteLine("El menor elemento del vector es:" + menor);
+            Console.ReadKey();
+        }
+    }
+}
+==========================================================
+2do
+==========================================================
+using System;
+
+
+namespace Ref
+{
+    class Program
+    {
+        public void valores(out int v1, out int v2, out int v3, out int v4, out int v5)
+        {
+            Random r = new Random();
+            v1 = r.Next(1, 30);
+            v2 = r.Next(1, 30);
+            v3 = r.Next(1, 30);
+            v4 = r.Next(1, 30);
+            v5 = r.Next(1, 30);
+
+        }
+
+        static void Main(string[] args)
+        {
+            int va1, va2, va3, va4, va5;
+            Program p = new Program();
+            p.valores(out va1, out va2, out va3, out va4, out va5);
+            Console.WriteLine("Valor 1 :" + va1);
+            Console.WriteLine("Valor 2 :" + va2);
+            Console.WriteLine("Valor 3 :" + va3);
+            Console.WriteLine("Valor 4 :" + va4);
+            Console.WriteLine("Valor 5 :" + va5);
+            Console.ReadKey();
+        }
+    }
+}
